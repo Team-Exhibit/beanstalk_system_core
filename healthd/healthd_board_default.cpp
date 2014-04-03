@@ -18,6 +18,9 @@
 
 void healthd_board_init(struct healthd_config *config)
 {
+#ifdef STE_HARDWARE
+config->batteryTemperaturePath = "/sys/devices/platform/sec-battery/power_supply/battery/batt_temp_adc";
+#endif
     // use defaults
 }
 
