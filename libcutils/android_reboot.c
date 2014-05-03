@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <utils/Log.h> 
 
 #include <cutils/android_reboot.h>
 
@@ -107,6 +108,7 @@ int android_reboot(int cmd, int flags, char *arg)
     int ret = 0;
     int reason = -1;
 
+    ALOGE("Meticulus: cmd=%d flags=%d arg=%s\n",cmd,flags,arg);
 #ifdef RECOVERY_PRE_COMMAND
     if (cmd == (int) ANDROID_RB_RESTART2) {
         if (arg && strlen(arg) > 0) {
